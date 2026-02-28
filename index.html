@@ -6,37 +6,43 @@
     <title>Continuous Security Navigator</title>
     <meta
       name="description"
-      content="Web app for DevSecOps process maturity analysis, risk-driven team improvements, and practical tool recommendations."
+      content="Interactive DevSecOps process navigator with maturity scoring, prioritized gaps, and tool-guided improvement roadmap."
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <div class="bg-orb orb-a"></div>
     <div class="bg-orb orb-b"></div>
+
     <main class="app-shell">
       <header class="hero">
         <div class="hero-topbar">
           <p id="hero-kicker" class="kicker"></p>
-          <div class="preferences">
-            <label>
-              <span id="lang-label"></span>
-              <select id="lang-switch">
-                <option value="en">EN</option>
-                <option value="pl">PL</option>
-              </select>
-            </label>
-            <label>
-              <span id="theme-label"></span>
-              <select id="theme-switch">
-                <option id="theme-option-dark" value="dark"></option>
-                <option id="theme-option-light" value="light"></option>
-              </select>
-            </label>
+
+          <div class="top-actions">
+            <button id="help-button" class="icon-btn" aria-label="How it works">?</button>
+
+            <div class="switch" aria-label="Language switch">
+              <span id="lang-label" class="switch-label"></span>
+              <div class="segmented" role="tablist" aria-label="Language">
+                <button class="seg-btn" data-lang="en">EN</button>
+                <button class="seg-btn" data-lang="pl">PL</button>
+              </div>
+            </div>
+
+            <div class="switch" aria-label="Theme switch">
+              <span id="theme-label" class="switch-label"></span>
+              <div class="segmented" role="tablist" aria-label="Theme">
+                <button class="seg-btn" data-theme="dark" id="theme-dark-btn"></button>
+                <button class="seg-btn" data-theme="light" id="theme-light-btn"></button>
+              </div>
+            </div>
           </div>
         </div>
 
         <h1 id="app-title"></h1>
         <p id="hero-lead" class="lead"></p>
+
         <div class="hero-actions">
           <button id="btn-save" class="btn btn-primary"></button>
           <button id="btn-export" class="btn btn-secondary"></button>
@@ -44,69 +50,132 @@
         </div>
       </header>
 
-      <section class="panel panel-profile">
-        <h2 id="section-profile-title"></h2>
-        <div id="profile-form" class="profile-grid"></div>
-        <div class="quick-presets">
-          <span id="preset-label"></span>
-          <button id="preset-startup" class="chip"></button>
-          <button id="preset-scaleup" class="chip"></button>
-          <button id="preset-mature" class="chip"></button>
-        </div>
-      </section>
+      <nav class="route-tabs" aria-label="Main navigation">
+        <button class="route-tab" data-route="overview" id="route-overview"></button>
+        <button class="route-tab" data-route="assessment" id="route-assessment"></button>
+        <button class="route-tab" data-route="insights" id="route-insights"></button>
+        <button class="route-tab" data-route="tools" id="route-tools"></button>
+      </nav>
 
-      <section class="panel panel-framework">
-        <div class="panel-title">
-          <h2 id="framework-title"></h2>
-          <p id="framework-scale"></p>
-        </div>
-        <div id="framework-form" class="framework-grid"></div>
-      </section>
-
-      <section id="detail-panel" class="panel panel-detail" hidden>
-        <div class="panel-title">
-          <h2 id="detail-heading"></h2>
-          <button id="btn-close-detail" class="btn btn-secondary"></button>
-        </div>
-        <p id="detail-open-hint" class="muted"></p>
-        <div id="detail-content" class="detail-content"></div>
-      </section>
-
-      <section class="panel panel-results">
-        <h2 id="results-title"></h2>
-        <div id="overall-summary" class="overall-summary"></div>
-        <div id="stage-results" class="stage-results"></div>
-      </section>
-
-      <section class="panel panel-findings">
-        <h2 id="findings-title"></h2>
-        <div class="split-grid">
-          <div>
-            <h3 id="findings-subtitle"></h3>
-            <div id="findings" class="findings-list"></div>
+      <section class="route-panel" data-route-panel="overview">
+        <section class="panel onboarding-panel clickable-card" id="onboarding-card">
+          <div class="panel-title">
+            <h2 id="overview-title"></h2>
+            <button id="start-assessment-btn" class="btn btn-secondary"></button>
           </div>
-          <div>
-            <h3 id="roadmap-subtitle"></h3>
-            <div id="roadmap" class="roadmap-list"></div>
+          <div class="onboarding-grid">
+            <article class="onboarding-step clickable-card">
+              <p class="step-index">1</p>
+              <h3 id="overview-step1-title"></h3>
+              <p id="overview-step1-body" class="muted"></p>
+            </article>
+            <article class="onboarding-step clickable-card">
+              <p class="step-index">2</p>
+              <h3 id="overview-step2-title"></h3>
+              <p id="overview-step2-body" class="muted"></p>
+            </article>
+            <article class="onboarding-step clickable-card">
+              <p class="step-index">3</p>
+              <h3 id="overview-step3-title"></h3>
+              <p id="overview-step3-body" class="muted"></p>
+            </article>
           </div>
-        </div>
+        </section>
+
+        <section class="panel panel-profile">
+          <h2 id="section-profile-title"></h2>
+          <div id="profile-form" class="profile-grid"></div>
+          <div class="quick-presets">
+            <span id="preset-label"></span>
+            <button id="preset-startup" class="chip clickable-card"></button>
+            <button id="preset-scaleup" class="chip clickable-card"></button>
+            <button id="preset-mature" class="chip clickable-card"></button>
+          </div>
+        </section>
       </section>
 
-      <section class="panel panel-tools">
-        <h2 id="tools-title"></h2>
-        <p id="tools-lead" class="muted"></p>
-        <div id="tools" class="tools-grid"></div>
+      <section class="route-panel" data-route-panel="assessment">
+        <section class="panel panel-framework">
+          <div class="panel-title">
+            <h2 id="framework-title"></h2>
+          </div>
+
+          <div id="scale-legend" class="scale-legend" aria-label="Maturity scale legend"></div>
+          <div id="framework-form" class="framework-grid"></div>
+        </section>
       </section>
 
-      <section class="panel panel-method">
-        <h2 id="approach-title"></h2>
-        <ul>
-          <li id="approach-b1"></li>
-          <li id="approach-b2"></li>
-          <li id="approach-b3"></li>
-        </ul>
+      <section class="route-panel" data-route-panel="insights">
+        <section id="detail-panel" class="panel panel-detail" hidden>
+          <div class="panel-title">
+            <h2 id="detail-heading"></h2>
+            <button id="btn-close-detail" class="btn btn-secondary"></button>
+          </div>
+          <p id="detail-open-hint" class="muted"></p>
+          <div id="detail-content" class="detail-content"></div>
+        </section>
+
+        <section class="panel panel-results">
+          <h2 id="results-title"></h2>
+          <div id="overall-summary" class="overall-summary"></div>
+          <div id="stage-results" class="stage-results"></div>
+        </section>
+
+        <section class="panel panel-findings">
+          <h2 id="findings-title"></h2>
+          <div class="split-grid">
+            <div>
+              <h3 id="findings-subtitle"></h3>
+              <div id="findings" class="findings-list"></div>
+            </div>
+            <div>
+              <h3 id="roadmap-subtitle"></h3>
+              <div id="roadmap" class="roadmap-list"></div>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section class="route-panel" data-route-panel="tools">
+        <section class="panel panel-tools">
+          <h2 id="tools-title"></h2>
+          <p id="tools-lead" class="muted"></p>
+          <div id="tools" class="tools-grid"></div>
+        </section>
+
+        <section class="panel panel-method clickable-card" id="how-works-card">
+          <h2 id="approach-title"></h2>
+          <ul>
+            <li id="approach-b1"></li>
+            <li id="approach-b2"></li>
+            <li id="approach-b3"></li>
+          </ul>
+        </section>
       </section>
     </main>
+
+    <dialog id="help-modal" class="modal">
+      <article class="modal-card">
+        <header class="modal-header">
+          <h3 id="help-title"></h3>
+          <button class="icon-btn" id="help-close" aria-label="Close">×</button>
+        </header>
+        <div class="modal-body" id="help-body"></div>
+        <footer class="modal-footer">
+          <button id="help-go-assessment" class="btn btn-secondary"></button>
+        </footer>
+      </article>
+    </dialog>
+
+    <dialog id="priority-modal" class="modal">
+      <article class="modal-card">
+        <header class="modal-header">
+          <h3 id="priority-title"></h3>
+          <button class="icon-btn" id="priority-close" aria-label="Close">×</button>
+        </header>
+        <div class="modal-body" id="priority-body"></div>
+      </article>
+    </dialog>
 
     <script type="module" src="./app.js"></script>
   </body>

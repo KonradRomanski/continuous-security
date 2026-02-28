@@ -46,6 +46,13 @@ body {
   color: var(--ink);
   font-family: "Space Grotesk", "Avenir Next", "Segoe UI", sans-serif;
   line-height: 1.4;
+  user-select: none;
+}
+
+input,
+select,
+textarea {
+  user-select: auto;
 }
 
 html[data-theme="light"] body {
@@ -102,16 +109,16 @@ html[data-theme="light"] body {
 .app-shell {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 28px 18px 80px;
+  padding: 20px 18px 80px;
   display: grid;
-  gap: 18px;
+  gap: 16px;
 }
 
 .hero {
   background: linear-gradient(125deg, #0b1629, #163767 52%, #0f5f53);
   border-radius: 18px;
   color: #f9fffd;
-  padding: 24px;
+  padding: 20px;
   box-shadow: var(--shadow);
 }
 
@@ -121,32 +128,16 @@ html[data-theme="light"] .hero {
 
 .hero-topbar {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: flex-start;
   gap: 12px;
 }
 
-.preferences {
+.top-actions {
   display: flex;
+  gap: 8px;
   align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
-}
-
-.preferences label {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.8rem;
-  color: #d6e5ff;
-}
-
-.preferences select {
-  border-radius: 999px;
-  border: 1px solid rgba(230, 244, 255, 0.35);
-  background: rgba(8, 17, 30, 0.6);
-  color: #ebf3ff;
-  padding: 5px 9px;
 }
 
 .kicker {
@@ -159,13 +150,13 @@ html[data-theme="light"] .hero {
 
 .hero h1 {
   margin: 12px 0 0;
-  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  font-size: clamp(1.6rem, 3.4vw, 2.6rem);
   line-height: 1.07;
 }
 
 .lead {
   margin-top: 12px;
-  max-width: 920px;
+  max-width: 900px;
   color: #d8f6ef;
 }
 
@@ -174,6 +165,61 @@ html[data-theme="light"] .hero {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+}
+
+.switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(8, 17, 30, 0.35);
+  border: 1px solid rgba(230, 244, 255, 0.2);
+  border-radius: 999px;
+  padding: 5px 7px;
+}
+
+.switch-label {
+  font-size: 0.78rem;
+  color: #d7e6ff;
+  opacity: 0.95;
+}
+
+.segmented {
+  display: inline-flex;
+  background: rgba(1, 6, 14, 0.45);
+  border-radius: 999px;
+  padding: 2px;
+  gap: 2px;
+}
+
+.seg-btn {
+  border: 0;
+  background: transparent;
+  color: #dce9ff;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  cursor: pointer;
+}
+
+.seg-btn.is-active {
+  background: #ffffff;
+  color: #13253a;
+  font-weight: 700;
+}
+
+.icon-btn {
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  background: rgba(8, 17, 30, 0.5);
+  color: #edf5ff;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.icon-btn:hover {
+  transform: translateY(-1px);
 }
 
 .btn {
@@ -207,6 +253,37 @@ html[data-theme="light"] .hero {
   color: #f9fffd;
 }
 
+.route-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.route-tab {
+  background: var(--card);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+}
+
+.route-tab.is-active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent) inset;
+}
+
+.route-panel {
+  display: none;
+  gap: 16px;
+}
+
+.route-panel.is-active {
+  display: grid;
+}
+
 .panel {
   background: var(--card);
   border: 1px solid var(--line);
@@ -218,11 +295,35 @@ html[data-theme="light"] .hero {
 .panel h2 {
   margin-top: 0;
   margin-bottom: 10px;
-  font-size: 1.35rem;
+  font-size: 1.3rem;
 }
 
 .panel h3 {
   margin: 8px 0;
+}
+
+.onboarding-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.onboarding-step {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--bg-secondary);
+  padding: 12px;
+}
+
+.step-index {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 30%, transparent);
+  margin: 0;
+  font-weight: 800;
 }
 
 .profile-grid {
@@ -283,6 +384,46 @@ html[data-theme="light"] .hero {
   color: var(--muted);
 }
 
+.scale-legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.scale-chip {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--bg-secondary);
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.scale-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--accent-3);
+}
+
+.scale-dot.level-0 {
+  background: #667188;
+}
+
+.scale-dot.level-1 {
+  background: #ff8f5c;
+}
+
+.scale-dot.level-2 {
+  background: #f4c061;
+}
+
+.scale-dot.level-3 {
+  background: #35d07f;
+}
+
 .framework-grid {
   display: grid;
   gap: 12px;
@@ -303,6 +444,20 @@ html[data-theme="light"] .hero {
   margin-bottom: 8px;
 }
 
+.stage-header {
+  cursor: pointer;
+}
+
+.stage-header::after {
+  content: "⌄";
+  float: right;
+  color: var(--muted);
+}
+
+.stage-header[aria-expanded="false"]::after {
+  content: "›";
+}
+
 .stage-card header h3 {
   margin: 0;
   font-size: 1.03rem;
@@ -321,14 +476,15 @@ html[data-theme="light"] .hero {
   gap: 8px;
 }
 
-.stage-links a {
-  color: var(--accent-3);
+.stage-link-chip {
   text-decoration: none;
-  font-size: 0.82rem;
-}
-
-.stage-links a:hover {
-  text-decoration: underline;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent-3) 15%, var(--bg-secondary));
+  color: var(--ink);
+  font-size: 0.8rem;
+  padding: 5px 8px;
+  cursor: pointer;
 }
 
 .question-grid {
@@ -416,6 +572,7 @@ html[data-theme="light"] .scorebar {
   font-size: 0.73rem;
   font-weight: 700;
   padding: 3px 9px;
+  cursor: pointer;
 }
 
 .badge.must {
@@ -466,6 +623,7 @@ html[data-theme="light"] .scorebar {
 
 .clickable-card {
   cursor: pointer;
+  user-select: none;
 }
 
 .clickable-card:hover {
@@ -475,7 +633,7 @@ html[data-theme="light"] .scorebar {
 
 .tools-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 10px;
 }
 
@@ -484,16 +642,31 @@ html[data-theme="light"] .scorebar {
   border-radius: 12px;
   padding: 10px;
   background: var(--bg-secondary);
+  text-decoration: none;
+  color: var(--ink);
+  display: grid;
+  gap: 6px;
+  user-select: none;
 }
 
-.tool-card a {
-  color: var(--accent-3);
-  text-decoration: none;
+.tool-card:hover {
+  border-color: color-mix(in srgb, var(--accent-3) 65%, var(--line));
+}
+
+.tool-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-weight: 700;
 }
 
-.tool-card a:hover {
-  text-decoration: underline;
+.tool-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--accent-3) 24%, var(--bg-secondary));
 }
 
 .panel-method ul {
@@ -541,12 +714,67 @@ html[data-theme="light"] .scorebar {
 }
 
 .detail-link {
-  color: var(--accent-3);
   text-decoration: none;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--bg-secondary);
+  color: var(--ink);
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
 }
 
 .detail-link:hover {
-  text-decoration: underline;
+  border-color: color-mix(in srgb, var(--accent-3) 65%, var(--line));
+}
+
+.modal {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  width: min(760px, calc(100% - 24px));
+}
+
+.modal::backdrop {
+  background: rgba(6, 14, 26, 0.64);
+}
+
+.modal-card {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: var(--shadow);
+}
+
+.modal-header,
+.modal-footer {
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.modal-body {
+  padding: 0 16px 16px;
+  display: grid;
+  gap: 10px;
+}
+
+.help-step {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px;
+  background: var(--bg-secondary);
+}
+
+@media (max-width: 900px) {
+  .route-tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 860px) {
@@ -555,7 +783,7 @@ html[data-theme="light"] .scorebar {
   }
 
   .hero {
-    padding: 18px;
+    padding: 16px;
   }
 
   .hero-topbar {

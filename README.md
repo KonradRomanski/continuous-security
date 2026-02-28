@@ -4,12 +4,15 @@ A practical web app for DevSecOps process analysis and team improvement planning
 
 ## Key capabilities
 
-- English-first UI by default, with EN/PL language switch.
-- Dark mode by default, with light mode switch.
+- English-first UI by default, with EN/PL custom toggle switch.
+- Dark mode by default, with light mode custom toggle switch.
+- Multi-tab navigation: `Overview`, `Assessment`, `Insights`, `Tools`.
 - 8-stage process assessment on a 0-3 maturity scale.
 - Weighted scoring and risk classification per stage and overall.
 - Prioritized gaps (`MUST / SHOULD / COULD`) with owners and KPI targets.
 - Clickable gap cards with a full cause -> effect -> action -> outcome view.
+- Priority badges (`MUST/SHOULD/COULD`) open explainer popup.
+- Built-in `How it works` popup and first-run mini tutorial.
 - Tool recommendations with working links to official documentation.
 - Markdown report export.
 - Local state persistence (`localStorage`).
