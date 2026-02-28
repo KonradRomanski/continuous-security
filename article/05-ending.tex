@@ -1,0 +1,380 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Practical Framework} \label{ch:practical-frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textsc{This chapter presents a final reference framework for continuous security} developed by combining the literature review (\cref{ch:knowledge-base}) and the results from the case studies (\cref{ch:case-studies}).
+We present here 8 steps of the \textit{continuous security framework}.
+Each step here has a discussion, a checklist of suggestions and a table of possible solutions we identified.
+
+% \begin{tcolorbox}[colback=violet!5!white,colframe=violet!50!black,colbacktitle=violet!75!black,title=TODO: Konrad R. \& Konrad Sz.]
+%     → Skopiować check-listę z frameworku \textbf{teoretycznego}.
+
+%     → Rozszerzyć o problemy zidentyfikowane w \textbf{case studies}.
+
+%     → Dodać ramki z proponowanymi rozwiązaniami.
+% \end{tcolorbox}
+
+%=================================%
+\section{Preparation and Planning}
+\label{final:prep}
+%=================================%
+Preparations are an essential part of every successful operation.
+Continuous planning ensures that an organisation is always prepared to take on new challenges and better adapt to current ones.
+
+An organisation being ready to work efficiently and safely, creating secure products, means that its members have been trained appropriately, and there are operating procedures for regular and crisis situations. Even for small teams, it's important for the team members to be \textit{ready} for problems, even if they don't need extensive internal structures, long and detailed standard operating procedures, or legal and bureaucratic compliance with regulations.
+
+\begin{todolist}
+    \item Security must not be marginalised. Is security considered at your organisation?
+    \item Are enough resources allocated to maintaining it?
+    \item At the organisation, is there a person who will make executive decisions with regard to cybersecurity, like a Chief Security Officer? Who are they?
+    \item When assembling a development team, are there responsible people who can be put on the team to be responsible for security?
+    Consider if you can assign responsibilities for security to team members; maybe you do not need to hire additional cybersecurity specialists.
+    \item It’s not just about designating individuals on paper; it’s about ensuring they genuinely collaborate in practice.
+    \item If someone is assigned security-related duties, these should be part of their regular responsibilities, not an additional burden.
+    \item Determine who will oversee security.
+    \item Establish who is authorised to make decisions. Should the Project Manager escalate decisions to higher authorities?
+    \item Define how threats will be reported and establish organisational procedures for continuous security monitoring.
+    \item Consider privacy requirements, both practical and legal. In Europe, information systems must adhere to the \acrfull{rodo}, e.g., have a Data Protection Officer appointed.
+    \item Consider automation tools and pipelines as they can save you a lot of time. Can they be used in your project? Is there someone on the team who knows how to use them?
+\end{todolist}
+
+
+
+Understanding a project both before starting it and during its production is crucial for effective development.
+The organisation should be prepared for the project, the sense of the system known, the goals and risks defined, stakeholders identified, and resources allocated. Without it, the organisation will be less effective, the processes longer, and the result potentially less secure.
+
+\begin{todolist}
+    \item The system's purpose should be clear at all times. Do you have a single place where everyone who works on the project can check what the overall goal is?
+    \item If someone is assigned security-related duties, make sure they are part of their regular responsibilities, not an additional burden.
+    \item Clarify the business processes that will be digitised by the system and assess how they are secured.
+    \item Identify the data that will be processed.
+    \item Determine who will oversee security.
+    \item Establish who is authorised to make decisions. Should the Project Manager escalate decisions to higher authorities?
+    \item Define how threats will be reported and establish organisational procedures for continuous security monitoring. 
+    \item Security must not be marginalised. Ensure that resources are allocated to security from the very beginning.
+    \item If circumstances change, revisit the data collected here to inform decisions in the next stages of the lice-cycle.
+    % \item Consider privacy requirements, both practical and legal. In Europe information systems must adhere to the \acrfull{rodo} and have a Data Protection Officer appointed.
+        % \item Upewnij się, że w każdym momencie wiadomo jaki jest cel systemu?
+        % \item Assingn responsibility for security to a capable team memeber.
+        % \item jak wyglądają procesy biznesowe, które zostaną ,,zinformatyzowane'' przez system? jak są zabezpieczone?
+        % \item jakie dane będą przetwarzane?
+        % \item kto będzie kontrolował bezpieczeństwo?
+        % \item kto jest autoryzowany do podejmowania decyzji? PM przekazuje decyzje wyżej postawionych?
+        % \item to nie musi być specjalnie zatrudniona osoba
+        % \item upewij się, że od samego początku są przeznaczone zasoby na zabezpieczenie systemu i bezpieczeństwo nie jest marginalizowane 
+        % \item jeśli zmieni się sytuacja, wróć do zgromadzonych tu danych, żeby informowały decyzje podejmowane w kolejnych krokach
+        % \item sposób raportowania zagrożeń, organizacyjne procedury -- continuous security monitoring
+        % \item nie chodzi o to, żeby na papierze były osoby wyznaczone, ale żeby faktycznie w praktyce pracowały ze sobą
+        % \item jeśli ktoś dostaje obowiązki związane z bezpieczeństwem, to są elementem jego normalnej pracy a nie dodatkowym obciążeniem ponad regularnymi obowiązkami
+        % \item prywatność i GDPR (RODO wymaga wyznaczenia Data Protection Officer)
+
+\end{todolist}
+% \end{todolist}
+\begin{table}[h!]
+\centering
+\caption{Problems and Solutions in the Planning Phase}
+\begin{tabular}{|m{5cm}|m{9cm}|}
+\hline
+\textbf{Problem} & \textbf{Solution} \\
+\hline
+Lack of Developer Involvement & \textbf{Example} In a project, developers were only informed of the goals after the planning phase was completed, leading to misaligned objectives and unexpected technical issues. \textbf{Solution} Involve developers during the planning phase to contribute their technical insights. For instance, include them in initial goal-setting meetings and requirements discussions to ensure technical feasibility and alignment with project objectives. \\
+\hline
+Delayed Risk Identification & \textbf{Example} A project faced significant security vulnerabilities because cybersecurity experts were not consulted until after development had started. \textbf{Solution} Engage cybersecurity professionals from the beginning. Conduct joint planning sessions where cybersecurity experts assess potential risks and provide guidance on incorporating security measures into the initial design. This could involve reviewing architectural plans and suggesting early-stage security protocols. \\
+\hline
+Inflexibility in Agile Projects & \textbf{Example} An Agile project had rigid plans that could not accommodate changing requirements, resulting in delays and scope creep. \textbf{Solution} Adopt a more flexible planning approach, such as regular sprint reviews and adaptive backlog management. For example, implement iterative planning sessions where the project team revisits and adjusts plans based on feedback and evolving requirements, allowing for ongoing adjustments and alignment with project needs. \\
+\hline
+\end{tabular}
+\label{tab:planning_problems_solutions}
+\end{table}
+
+
+%=================================%
+\section{Requirements, Business and Security}
+\label{final:reqs}
+%=================================%
+It is essential to thoroughly gather and document software requirements. Ensure you capture both functional requirements, which outline what the system must achieve, and non-functional requirements, which address attributes like security, performance, and usability.
+
+It is also recommended to align these requirements with your organisation's risk management processes, if possible. Evaluate the potential adverse impacts on organisational operations, assets, individuals, and security, particularly concerning the loss of \acrshort{cia} of your systems and the data they handle.
+
+\begin{todolist}
+    \item Have the requirements been gathered and documented? You can't expect requirements to be met if they aren't clearly defined.
+    \item Can the requirements be verified and enforced automatically?
+    \item If the requirements change, remember to revisit this section.
+    \item Have data protection requirements been defined? Be sure to leverage the previous steps.
+    \item Be inquisitive. Meet with colleagues and ask questions.
+    \item Choices have consequences; keep them in mind.
+    \item Once you understand the risks, be aware of the consequences when things go wrong, such as the potential loss of \acrshort{cia}.
+    \item Gather requirements related to \acrfull{aaa}.
+    % \item czy wymagania są zebrane i zapisane? -- jak wymagać spełnienia wymagań, jeśli nie wiadomo jakie są?
+    % \item jak zmienią się wymagania, to pamietaj, żeby tu wrócić
+    % \item czy zdefiniowano wygamania ochrony danych osobowych? -- pamiętaj żeby wykorzystać poprzedni krok
+    % \item bądź dociekliwy. spotykaj się ze wspołpracownikami, zadawaj pytania
+    % \item wybory mają konsekwencje, pamiętaj o nich
+    % \item gdy wiesz jakie są zagrożenia, poznaj konsekwencje kupy wpadającej w wentylator, np. utrata CIA
+    % \item zgromadź wymagania dot. AAA
+\end{todolist}
+\begin{table}[h!]
+\centering
+\caption{Problems and Solutions in the Requirements Phase}
+\begin{tabular}{|m{5cm}|m{9cm}|}
+\hline
+\textbf{Problem} & \textbf{Solution} \\
+\hline
+Unclear Requirements & \textbf{Example} In an Agile project, insufficient detail in user stories led to misinterpretations during development. \textbf{Solution} Ensure that requirements are clearly defined and documented. Hold regular workshops with stakeholders and developers to refine user stories and clarify expectations. Include acceptance criteria for every user story to avoid ambiguity. \\
+\hline
+Neglecting Security Requirements & \textbf{Example} Security considerations were not integrated into the initial requirements, leading to vulnerabilities identified later in development. \textbf{Solution} Incorporate security experts during requirement gathering sessions. For example, conduct threat modeling exercises early on to identify potential risks and document security requirements as mandatory. \\
+\hline
+Overlooking Non-functional Requirements & \textbf{Example} A project overlooked performance and scalability needs, resulting in a system that struggled under heavy load. \textbf{Solution} Include non-functional requirements such as performance, usability, and scalability in the requirement documents. For instance, define load thresholds and performance benchmarks during the requirement phase to guide the development. \\
+\hline
+\end{tabular}
+\label{tab:requirements_problems_solutions}
+\end{table}
+
+
+%=================================%
+\section{Design and Prioritise}
+\label{final:design}
+%=================================%
+First, develop the system’s architecture. Start with high-level design---the overall structure of the system. Then, move on to detailed design, which specifies the internal workings and behaviour of each system component.
+
+Secondly, carefully select and adapt security measures to protect the system and the organisation. These should be aligned with risks identified in the previous step.
+
+Thirdly, both `business' and `security' features should be prioritised accordingly to provide a strong foundation for the system, and built on top of it.
+
+\begin{todolist}
+    \item It’s truly worth planning ahead.
+    \item Document your plans and designs—your project can serve as a contract between you, your colleagues, and clients.
+    \item Don’t waste time unnecessarily on making things look pretty, but do take notes and create diagrams to ensure everyone understands the concepts—even you, six months later, after a few pints.
+    \item Has something changed? Update your development and security plans! Undocumented changes pose a serious risk, and it’s easy to forget details that haven’t been recorded.
+    \item For every level of analysis, element, and system component, ask yourself: Is it secure? What are the risks? How can they be mitigated? Propose protection methods using the knowledge at your disposal.
+    \newacronym{moscow}{MoSCoW}{Must/Should/Could/Won't}
+    \item When considering plans; set priorities. Consider prioritisation like the \acrfull{moscow} method.
+\end{todolist}
+
+\begin{table}[h!]
+\centering
+\caption{Problems and Solutions in the Design Phase}
+\begin{tabular}{|m{5cm}|m{9cm}|}
+\hline
+\textbf{Problem} & \textbf{Solution} \\
+\hline
+Rigid Design Architecture & \textbf{Example} A project had a rigid architecture that could not accommodate changing requirements, leading to costly redesigns. \textbf{Solution} Design for flexibility. For example, employ modular architectures and microservices that allow for easier adjustments as the system evolves. Regularly review and update designs during the development process. \\
+\hline
+Lack of Security Integration & \textbf{Example} Security was treated as an afterthought in the design, leading to significant vulnerabilities. \textbf{Solution} Integrate security considerations from the start. For instance, perform secure design reviews and include security-focused design principles like zero trust and least privilege access. \\
+\hline
+Insufficient Documentation & \textbf{Example} A lack of proper design documentation led to misunderstandings among developers, resulting in inconsistent implementations. \textbf{Solution} Ensure comprehensive design documentation is created and maintained. For example, use diagrams and design specifications to clearly communicate the architecture and keep them updated as changes occur. \\
+\hline
+\end{tabular}
+\label{tab:design_problems_solutions}
+\end{table}
+
+
+%=================================%
+\section{Implementation}
+\label{final:implement}
+%=================================%
+The purpose of this stage is to translate into a functional, operational and secure system.
+The process is iterative and should be informed by earlier prioritisation. 
+Document how the e specific details of how features and security measures are implemented. Documentation will support ongoing security management, compliance efforts, and future development in general.
+
+\begin{todolist}
+    \item Ensure that what you're doing is not spontaneous but follows a plan and is based on the project.
+    \item If there isn't a project plan, start by creating one before proceeding with implementation, it will really help you.
+    \item Conduct code (and security) reviews—can it be written cleaner? Made faster? More secure?
+    \item Have someone else review your code—don’t be selfish.
+    \item Never store confidential data in public places, such as a production \texttt{.env} file on Git.
+    \item Don't get bugged down with a single task, if something cannot be finished timely, accept that it finished with a failure and be ready to start over later.
+\end{todolist}
+\begin{table}[h!]
+\centering
+\caption{Problems and Solutions in the Implementation Phase}
+\begin{tabular}{|m{5cm}|m{9cm}|}
+\hline
+\textbf{Problem} & \textbf{Solution} \\
+\hline
+Unstructured Coding Practices & \textbf{Example} Developers in a project followed inconsistent coding practices, leading to fragmented and hard-to-maintain code. \textbf{Solution} Establish coding standards and practices. For example, adopt a consistent style guide (e.g., PEP 8 for Python) and enforce it with regular code reviews. Implement continuous integration pipelines to catch deviations early. \\
+\hline
+Lack of Code Reviews & \textbf{Example} A lack of formal code reviews led to low-quality code being integrated, resulting in bugs and technical debt. \textbf{Solution} Introduce mandatory code reviews for all contributions. For instance, implement peer review processes where every piece of code must be reviewed by at least one other team member before merging. \\
+\hline
+Inadequate Containerisation Strategy & \textbf{Example} A project faced deployment issues due to inconsistent environments and dependencies. \textbf{Solution} Use containerisation tools like Docker to ensure consistent environments across development, testing, and production. For example, create Docker images for all services and maintain a central repository for easy access and deployment. \\
+\hline
+\end{tabular}
+\label{tab:implementation_problems_solutions}
+\end{table}
+
+
+%=================================%
+\section{Testing}
+\label{final:test}
+%=================================%
+Testing is a critical element of the process to verify that the software functions as intended and meets all specified requirements. Various types of testing exist, both for functionality and security of a system. They can be automatic or manual. By thoroughly testing the application, you can confirm that the software not only works correctly but also maintains the necessary security and privacy standards.
+\begin{todolist}
+    \item Test everything!
+    \item Perform security testing!
+    \item Unit tests are connected to security! In addition to testing edge cases related to the problem domain, check for `malicious' inputs.
+    \item Include data security in transit when conducting integration tests.
+    \item Acceptance tests should also cover security features.
+    \item Move a task to the next `swimlane' only after security has been checked and everything is in order.
+    \item Test security comprehensively.
+    \item Use pipelines wherever possible—whether automated or manual, they should be defined and in place.
+    \item Test the environment where the code will be deployed.
+\end{todolist}
+\begin{table}[h!]
+\centering
+\caption{Problems and Solutions in the Testing Phase}
+\begin{tabular}{|m{5cm}|m{9cm}|}
+\hline
+\textbf{Problem} & \textbf{Solution} \\
+\hline
+Lack of Automated Testing & \textbf{Example} Manual testing processes in a project were time-consuming and error-prone. \textbf{Solution} Implement automated testing frameworks. For instance, use tools like Jenkins for continuous integration and tools like Selenium or Cypress for automated end-to-end testing. \\
+\hline
+Overlooking Security Testing & \textbf{Example} Security vulnerabilities were discovered late in production due to a lack of early security testing. \textbf{Solution} Integrate security testing early in the pipeline. For example, use static analysis tools (e.g., SonarQube) and dynamic testing tools (e.g., OWASP ZAP) to catch vulnerabilities before deployment. \\
+\hline
+Inconsistent Testing Environments & \textbf{Example} Tests were failing due to differences between the testing and production environments. \textbf{Solution} Standardise testing environments using containerisation. For instance, use Docker to replicate production environments during testing to ensure consistency and reliability. \\
+\hline
+\end{tabular}
+\label{tab:testing_problems_solutions}
+\end{table}
+
+
+%=================================%
+\section{Deployment}
+\label{final:reqs}
+%=================================%        
+After successful testing, the application is ready to be deployed to the production environment. This deployment process involves several key activities, including installation of the software, configuration of the system settings, and training users to effectively operate the application.
+\begin{todolist}
+    \item Avoid deployment without testing! If it’s not tested, it’s not ready for deployment.
+    \item Deploy the correct branch.
+    \item Deploy only code that has been tested.
+    \item Deploy only to a secure environment—when planning, consider how the environment should be prepared and who should have access—follow the principle of least privilege. 
+    \item Be cautious with sensitive data during the deployment process, especially in configuration. Sensitive data should be identified and accounted for in plans to avoid any uncertainty.
+    \item The environment equals the ecosystem, which includes the infrastructure, system, and other applications.
+    \item Does the user know how to use the application? Provide them with guidance to avoid, for instance, entering sensitive data in a public setting.
+\end{todolist}
+\begin{table}[h!]
+\centering
+\caption{Problems and Solutions in the Deployment Phase}
+\begin{tabular}{|m{5cm}|m{9cm}|}
+\hline
+\textbf{Problem} & \textbf{Solution} \\
+\hline
+Manual Deployment Errors & \textbf{Example} Manual deployment processes led to incorrect configurations and deployment failures. \textbf{Solution} Automate deployment processes. For instance, implement CI/CD pipelines with tools like Jenkins, GitLab CI, or CircleCI to automate code deployment and minimize human error. \\
+\hline
+Lack of Rollback Mechanisms & \textbf{Example} A project faced downtime because there was no rollback plan for failed deployments. \textbf{Solution} Implement rollback strategies. For example, use versioned deployments and maintain backup images to revert to a previous stable state in case of failure. \\
+\hline
+Insecure Deployment Configurations & \textbf{Example} Sensitive data like API keys were exposed in a deployment due to insecure configuration settings. \textbf{Solution} Secure deployment configurations. For instance, use environment variables and secret management tools (e.g., HashiCorp Vault) to securely manage sensitive information during deployment. \\
+\hline
+\end{tabular}
+\label{tab:deployment_problems_solutions}
+\end{table}
+
+
+%=================================%
+\section{Authorise}
+\label{final:reqs}
+%=================================%
+Ensure organisational accountability by assigning a senior management official the responsibility to assess and determine whether the security and privacy risks—including supply chain risks—to organisational operations and assets, individuals, other organisations, or national security are acceptable. This official must evaluate these risks in the context of the system's operation or the use of common controls, making informed decisions about whether they align with the organisation's risk tolerance and objectives.
+\begin{todolist}
+    \item There should be individuals who possess comprehensive knowledge and have a broad overview of the situation.     \item Developers should also have the authority to voice their concerns and escalate them to someone with greater knowledge, perspective, or authority.
+    \item Decision-makers must have genuine knowledge and/or experience.
+    \item With great power comes great responsibility.
+    \item Decisions should be made by individuals in appropriate positions—don't expect developers to make executive decisions.
+    \item Do not proceed with implementation without approval from higher levels.
+    \item Risk management involves making choices on how to mitigate threats (e.g., in relation to costs) and taking responsibility for those decisions.
+\end{todolist}
+\begin{table}[h!]
+\centering
+\caption{Problems and Solutions in the Authorisation Phase}
+\begin{tabular}{|m{5cm}|m{9cm}|}
+\hline
+\textbf{Problem} & \textbf{Solution} \\
+\hline
+Lack of Accountability for Decision-Making & \textbf{Example} Decision-making authority in a project was ambiguous, leading to inconsistent risk management and security decisions. \textbf{Solution} Assign clear accountability to senior management officials with the knowledge and authority to make risk-based decisions. For instance, designate a Chief Information Security Officer (CISO) or similar role responsible for approving security measures and managing risk. \\
+\hline
+Inadequate Involvement of Knowledgeable Stakeholders & \textbf{Example} Critical security and privacy decisions were made without consulting experts, resulting in not optimal choices. \textbf{Solution} Include stakeholders with comprehensive knowledge of authorization processes. For example, establish review boards comprising technical experts, risk assessors, and senior management to evaluate and approve system changes or new implementations. \\
+\hline
+Failure to Align Decisions with Risk Tolerance & \textbf{Example} Authorisation decisions failed to align with the organisation’s risk appetite, leading to excessive risk exposure or too conservative actions. \textbf{Solution} Implement a risk management framework where decision-makers evaluate risks based on organisational goals. For example, conduct regular risk assessments that inform decisive persons, assuring that risks are accepted only within predefined boundaries. \\
+\hline
+\end{tabular}
+\label{tab:authorize_problems_solutions}
+\end{table}
+
+
+%=================================%
+\section{Monitoring and Maintenance}
+\label{final:reqs}
+%=================================%
+Maintain situational awareness of the security and privacy posture of both the information system and the organisation. Once the software is in use, it enters the maintenance phase, during which bugs are fixed, performance is optimised, new features can be added, and the functioning of the system is monitored to ensure it operates as expected (and that any emerging risks are promptly addressed).
+\begin{todolist}
+    \item Ensure the process is continuous.
+    \item Monitor the system continuously, particularly focusing on improving areas that aren't functioning well, especially in terms of security. 
+    \item Adaptability: There should be a feedback loop in place that allows for the adaptation of new processes when changes occur.
+    \item If an issue arises due to poor implementation, revise and re-implement the plan accordingly.
+    \item If the plan is flawed, revisit the steps and correct them.
+    \item Regularly check existing functionalities through periodic testing.
+    \item Be aware that information about threats may come from external sources—adjust accordingly.
+    \item Establish procedures that are easy to follow and do not get bogged down in bureaucratic processes.
+    \item Share information; flow in all directions; educate others about potential threats. Check if anyone in the team has knowledge about the specific threat that has arisen.
+\end{todolist}
+\begin{table}[h!]
+\centering
+\caption{Problems and Solutions in the Monitoring and Maintenance Phase}
+\begin{tabular}{|m{5cm}|m{9cm}|}
+\hline
+\textbf{Problem} & \textbf{Solution} \\
+\hline
+Inconsistent or Ad-Hoc Monitoring Practices & \textbf{Example} Monitoring was performed irregularly, leading to delayed detection of critical system issues. \textbf{Solution} Establish a continuous monitoring process with automated tools. For instance, integrate solutions like Prometheus, Grafana, or Zabbix to constantly monitor system health, generating alerts when issues arise. \\
+\hline
+Lack of a Structured Maintenance Process & \textbf{Example} Maintenance tasks were reactive rather than proactive, causing inefficient use of resources and prolonged downtime. \textbf{Solution} Implement a ticket-based, Agile approach for maintenance. For example, incorporate regular maintenance tasks into the sprint cycles, with defined procedures for addressing bugs, performance issues, and feature updates. \\
+\hline
+Ineffective Feedback Loops & \textbf{Example} Issues reported by users were not systematically addressed, resulting in user dissatisfaction and unresolved bugs. \textbf{Solution} Create structured feedback loops where user reports are prioritised and resolved efficiently. Establish a central ticketing system (e.g., Jira) that tracks all issues reported by users and internal monitors, ensuring instant action and transparency. \\
+\hline
+\end{tabular}
+\label{tab:monitoring_maintenance_problems_solutions}
+\end{table}
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Conclusion} \label{ch:slut}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textsc{In this final chapter we conclude our research}, summarise the key points of the thesis, judge the value of the results we have generated and discuss the limitations and opportunities for future expansion of the topic.
+
+Firstly, through extensive literature review we found what can be done to increase security of information systems and maintaining in continuously. To that end we analysed in detail principles of cybersecurity, elements of the \acrshort{sdlc} and risk management, and approaches to risk analysis, quality assurance and incident response (discussed in~\cref{ch:knowledge-base}).
+
+% Declare your key result
+%     state the major findings
+%     repeat the rq and attempt to answer it
+%     hypothesis
+%     methods
+
+Secondly, through case studies performed through surveys and interviews with developers of IT systems, we investigated what issues could be found in applications and how the resulting risks could be decreased (\cref{ch:case-studies}).
+% We expected to see many unsafe and dangerous practices. 
+
+% Explain your contribution
+%     research artifacts
+%     how the research solves the problem
+%     Responding to a gap in literature
+%         Similarities and contrasts with other studies, expand/confirm ideas
+%         be clear whose results you are referencing
+%     How to apply in real worls
+    
+We created a \textit{practical framework} for the implementation of continuous ways of improving and maintaining security of applications with advice collated from both the literature review and empirical findings of the case studies, which is presented in \cref{ch:practical-frame}. The resulting framework is in line with solutions presented in NIST Risk Management guide~\cite{nist_risk_management}, but is original in that it is meant for organisations of different sizes and vastly different capabilities and human resources depth.
+% [...]
+The framework is adjusted to use by any willing organisation, and includes advice, examples and point-of-entry into deeper understanding of particular topics, while being simple enough to be used by people who were not previously involved in cybersecurity topics at all.
+
+% Issues with methodological design
+%     sampling issues, lack of responses, basic techniques, lack of experiance, time restrictions
+
+The studies were unfortunately restricted by the response time and the need for iterative surveying for the case studies; lack of trust and no power to change organisational processes at virtually all of the analysed organisations made measuring the precise impact of the implementation of the framework in production environments, but the framework has nonetheless been reviewed, scrutinised and rated as useful and implementable.
+    
+% Recommendation for future research
+It would be our recommendation to research the exact change in security of IT systems achieved using the framework presented here, which would require access to the same or equivalent systems and a control group and comparing the results of risk assessment quantitatively between the groups.
+
+In essence, we provide a reference framework for maintaining security in IT systems in a continuous way, which was developed to the best of our ability from the state-of-the-art and with real-world experience acquired form case studies on a whole spectrum of systems.

@@ -1,0 +1,82 @@
+%%%%%%%%%%%%%%%%%%%
+\part{Introduction}
+%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Background} \label{ch:intro}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textsc{The very first computer program} was created in 1843 when Ada Lovelace wrote down an algorithm for Charles Babbage's Difference Engine. She would become the first programmer in recorded history. He—the father of the very first functioning computational machine, a computer~\cite{britannica_ada_lovelace}.
+
+It would be a hundred-odd years later---in 1947---when the first computer \textit{bug} was reported---a moth trapped inside the Mark II at Harvard University. The term would stuck, giving rise to a name for all software faults for the days to come. Now, everyone who ever tried programming before will likely have known a bug of some kind \cite{computinghistory_bug, nationalgeographic_bug}.
+Another 14 years would pass before Paul Baran laid the groundwork for packet transmission, which is the basis of any data exchange over a modern network.
+After 8 more years, the forerunner of the modern Internet---ARPANET---went online for the first time~\cite{nationalgeographic_internet}.
+Ever since computer networks became available to the public, people were out there trying to attack network-accessible resources and information systems by exploiting flaws in software and infrastructure~\cite{cybernews_cybersecurity,onthenode_hackers}.
+This motivated a different group of people to pursue setting up defences and hardening their systems to prevent unauthorised access and even hunt down bugs in others' applications. 
+
+The environment in which IT systems are developed has also evolved. In its early days, software development, driven by changing business requirements and conducted following the waterfall method, was separated from the company's operations \cite{edwards_devops}. In 2001, the \textit{Agile Manifesto} was published, which outlined an eagerly adopted new approach to a more flexible method for software development \cite{highsmith_agilemanifesto}.
+Figure \ref{fig:biz-dev-ops__walls} shows the barriers between different elements of the business process, which leads to the creation of software systems.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figures/biz-dev-ops_walls.png}
+    \caption{Barriers between business, development and operations, and practices that help alleviate them. Adapted from~\cite{edwards_devops}.}
+    \label{fig:biz-dev-ops__walls}
+\end{figure}
+
+The next huge development on the scene appeared when, in 2009, a conference named \textit{DevOps Days} was held in Ghent, Belgium and introduced the concept of integrating software development and IT operations into one mechanism, dubbed \textsc{DevOps} \cite{mezak_devops_origins}---a contraction of \textsc{Development} and \textsc{Operations}.
+The idea was to develop an integrated pipeline and an appropriate toolchain to streamline, automate, share responsibility and simply help create better products faster and at lower cost \cite{edwards_devops,redhatdevops,mezak_devops_origins}.
+This is represented by the \cref{fig:dev-ops__loop}, which shows the integration of elements from software development and IT operations into one whole, continuous process.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figures/dev-ops__infinity.png}
+    \caption{The \textsc{DevOps} loop, which shows the elements of development and operations joined into one.}
+    \label{fig:dev-ops__loop}
+\end{figure}
+
+Unfortunately, even with those improvements, the security of the software and safety of the operations were often a bottleneck and a point of hindrance for the effectiveness and fluency of \textsc{DevOps} process—if it was implemented at all.
+As a result, rooted in \textsc{DevOps}, but expanding on it, a new methodology was created to introduce a third layer into the structure.
+This new approach is known as \textsc{DevSecOps} (or \textsc{Development}, \textsc{Security} and \textsc{Operations})~\cite{awsdevsecops, ibmdevsecops, portswigger_devsecops, redhatdevsecops}.
+This is represented in \cref{fig:dev-sec-ops__loop}, which expands on \cref{fig:dev-ops__loop}, adding the additional layer of security, encompassing the previous methodology below.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.75\linewidth]{figures/dev-sec-ops__loop.png}
+    \caption{The \textsc{DevSecOps} loop, which shows the elements of development, operations and security joined into one.}
+    \label{fig:dev-sec-ops__loop}
+\end{figure}
+
+In this thesis we are focusing on the security of IT systems through continuous processes by answering one overarching research question:
+
+\begin{question} \label{rq:main}
+    In information systems, what can be done to effectively increase and continuously maintain security by addressing issues in development, security and operations (\DevSecOps{}) processes, relating risk and cost associated with the changes?
+\end{question}
+
+This question, however, is broken down into two more detailed ones.
+Firstly, in preliminary qualitative research we were looking to identify issues in \DevSecOps{} processes in systems selected as case studies. Please, note that this is not a study of common vulnerabilities in software itself akin to OWASP Top 10~\cite{owasp_top_ten} or vulnerabilities and attack vectors like MITRE ATT\&CK~\cite{mitre_attack}, but an analysis of the \textit{processes} of the software life-cycle.
+
+\begin{question} \label{rq:identify}
+    What vulnerabilities and problems can be identified in \DevSecOps{} processes in IT systems?
+\end{question}
+
+Secondly, through literature review and our own experiments we 
+wanted to create a framework which could be used to improve security of IT systems, with the systems selected as case studies serving as subjects of the experiments and test-beds for the framework.
+
+\begin{question} \label{rq:fix}
+    In IT projects with the identified risk due to problems in \DevSecOps{} processes, are improvements based on the framework suggested in this thesis based on the industry best practices effective at increasing security and decreasing risks associated with the systems?
+\end{question}
+
+Thus, the framework we are presenting here is rooted in two sources: (1) our systematic review of scientific and technical literature and (2) data obtained from live case studies in addressing research question~\ref{rq:fix}.
+
+The framework has been tested and proven to have a positive impact on the risk management of the applications, and we hope it will present an informative and effective resource for teams intending to improve the security of their systems by introducing new processes in their organisations or changing the existing ones outside.
+
+The practical applicability of this research is in the possibility of implementation of the \textit{practical framework} we created in real-world scenarios within various projects. By collecting data from different teams, we identified patterns and strategies that can be used to develop a comprehensive and effective framework, not just theoretical, but designed for practical use by organisations wanting to improve their cybersecurity and safe project management processes.
+
+The findings highlight common practices, good approaches, problematic solutions, and areas for improvement across the projects' teams. Actionable insights that can be directly implemented to improve security protocols, streamline processes, and better prepare for future threats are offered. Through this analysis, we offer recommendations grounded in empirical data and adaptable to different project contexts, making them useful for a wide range of applications.
+
+The empirical context of this experiment involved gathering insights from multiple teams across diverse organisations, focusing mainly on their approaches to cybersecurity. The decision to select these teams as the empirical focus was motivated by their relevance to the research objective which was to create a practical framework based on real-world scenarios. By choosing teams actively engaged in these areas, the context aligns directly with the study’s goal of understanding diverse strategies and challenges. This context ensures the results are both applicable and gathered from current industry practices, making it an ideal fit for the research objectives.
+
+The empirical part of this thesis mainly focuses on the analysis of data from different teams across various organisations. Acquired data concerns key areas such as security practices, risk assessment, and incident response. Data collection involved structured interviews and surveys directed at the relevant personnel within each team, ensuring comprehensive and accurate insights.
+Comparing the responses across teams to identify patterns, common practices, and notable differences was one of the core objectives of the analysis. Using various methods, we were able to filter the data into actionable insights that have contributed to the development of a framework for practical application.
+Key findings reveal challenges related to inconsistent security training, lack of formal risk assessment, and many more. These insights show the need for standardised approaches and highlight the benefits of integrating well-structured processes in the teams.

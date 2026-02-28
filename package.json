@@ -1,0 +1,16 @@
+{
+  "name": "continuous-security-navigator",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Framework-driven web app for DevSecOps process analysis and team improvement planning.",
+  "scripts": {
+    "dev": "node scripts/dev-server.mjs",
+    "start": "node scripts/dev-server.mjs",
+    "test": "node --test",
+    "validate": "node scripts/validate-data.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

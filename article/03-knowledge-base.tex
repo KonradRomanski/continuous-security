@@ -1,0 +1,367 @@
+\part{Theoretical Basis}
+%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Knowledge Base} \label{ch:knowledge-base}
+%%%%%%%%%%%%%%%%%%%%%%%%
+\textsc{The Knowledge Base organises and presents the results} of the literature review performed as the first part of the thesis.
+The following sections cover the foundational topics of the further research, discussion and evaluation. It has first lead to the development of the theoretical framework in \cref{ch:theory-frame}, then informed the review of the case studies, practicalisation of the framework and the ultimate appraisal of the thesis, presented in \cref{ch:case-studies,ch:practical-frame,ch:slut} in \cref{part:eval} of the thesis.
+
+This thesis has been written at the culmination of a master programme in cybersecurity, so defining what \textit{cybersecurity} is a most fitting starting point for the discussion in this chapter. 
+
+%=====================%
+\section{Cybersecurity}
+%=====================%
+The terms \textit{cybersecurity} in English (also known as computer security, digital security, etc.), \textit{cyberbezpieczeństwo} in Polish (also,  \textit{bezpieczeństwo systemów informatycznych}), and similar ones in other languages, come from the word \textit{cyber-} `involving, using, or relating to computers, especially the internet'~\cite{dictionary:cyber} and respective words for \textit{security}, i.e., `the protection of people, organisations, countries, etc. against a possible attack or other crime'~\cite{dictionary:security}. Thus, cybersecurity stands for the process of protecting information and infrastructure from digital attacks, which are strictly designed to access, alter, or destroy sensitive data, obtain money or disrupt normal operations of the assailed entity. It is almost as old as computing---the first known attack was made by MIT students who explored computer systems without authorisation \cite{cybernews_cybersecurity}.
+
+\newacronym{cisa}{CISA}{Cybersecurity and Infrastructure Security Agency}
+
+Nowadays, cybersecurity encompasses a broad range of practices, including risk assessment, threat detection, incident response, and continuous monitoring. Organizations use cybersecurity frameworks and best practices to safeguard their digital assets and ensure their information systems' confidentiality, integrity, and availability. The US \acrfull{cisa} outlines the importance of implementing comprehensive cybersecurity measures to protect against the growing threat landscape \cite{cisa_cybersecurity}.
+
+Additionally, advancements in cybersecurity technologies and strategies continue to evolve, addressing new types of cyber threats and vulnerabilities. Effective cybersecurity management requires robust technical controls, user education, and proactive monitoring to prevent and respond to incidents in a quick manner \cite{nist_cybersecurity}.
+
+\newacronym{cia}{CIA}{Confidentiality, Integrity and Availability}
+
+The properties which cybersecurity as a process should ensure---and the elements that are required for security as a state to be maintained are \acrfull{cia}. Those properties are further expanded to what is known as the \textit{McCumber cube} or simply the \textit{cybersecurity cube}, by being expanded with states of information in a system and safeguards used to ensure the properties~\cite{swan_cybercube}. An example representation of the cube is shown on figure~\ref{fig:cybercube}.
+There are also other important properties like non-repudiation, authenticity, and closely knit together traceability and accountability.
+
+\newacronym{aaa}{AAA}{Authentication, Authorisation, and Accounting}
+
+A good method to maintain \acrshort{cia} (or at least a good starting point) in systems that require it, is to include strong methods of \acrfull{aaa}. Those are understood as: (i) verifying the identity of the supplicant, i.e., whomever or whatever is making a request, (ii) assigning rights and capabilities for the identity to the supplicant to allow them to perform actions they should be allowed to do, and (iii) keeping the supplicants accountable for their actions, by persistently logging and reviewing them. Figure~\ref{fig:aaa-and-id} was adapted from~\cite{f5_access_control} to represent the \acrshort{aaa} elements for quick reference.
+
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=0.4\linewidth]{figures/cyber-cube.png}
+    \caption{The McCumber cube, the properties of \acrfull{cia} for different states of information, and the measures to ensure it. Adapted from~\cite{fig:cybercube}.}
+    \label{fig:cybercube}
+\end{figure}
+
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=1\linewidth]{figures/aaa.png}
+    \caption{The real questions being answered at each step in the identity and \acrfull{aaa} processes. Adapted from~\cite{f5_access_control}.}
+    \label{fig:aaa-and-id}
+\end{figure}
+
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/software_development_lifecucle.png}
+    \caption{SDLC broken down into stages. Adapted from~\cite{jackson_sdlc}.}
+    \label{fig:sdlc}
+\end{figure}
+
+%=======================================%
+\section{Software Development Life-Cycle}
+%=======================================%
+\newacronym{sdlc}{SDLC}{Software Development Life-Cycle}
+The basis for any discussion about IT systems should be the understanding of how they are created in the first place. The process of creating applications is known as the \acrfull{sdlc}. It is a structured approach used by developers to create and deliver software. It~consists of several phases, each with its own activities and deliverables (shown on figure~\ref{fig:sdlc}). The main elements of the \acrshort{sdlc} are:
+
+\newacronym{accept-test}{UAT}{user acceptance testing}
+\begin{enumerate}
+    \item \textbf{Planning}. This phase is about defining the scope and purpose of the project, identifying stakeholders, and outlining the project goals and steps. It includes feasibility studies, resource planning, and risk assessment~\cite{ibm_planplc}.
+    
+    \item \textbf{Requirements Analysis}. In this phase, the requirements of the software are collected and noted. This includes functional requirements, which define what the system should do, and non-functional requirements, which are about system attributes like security, performance, and usability. Techniques like interviews, surveys, and looking at documents are often used~\cite{requirements_analysis}.
+    
+    \item \textbf{Design}. Involves creating the architecture of the system. High-level design focuses on~system structure, while detailed design specifies the internal plan and behaviour of the system components. Design tools like diagrams and flowcharts are used here often~\cite{design_phase}.
+    
+    \item \textbf{Implementation} (Coding). Actual writing of the software code. It translates the system design into a functional piece of code. Depending on the project use and its requirements different tools and programming languages are used~\cite{implementation_phase}.
+    
+    \item \textbf{Testing}. Testing is critical to ensure that the software functions correctly and fulfils requirements. It consists of various types of testing such as unit testing, integration testing, system testing, and \acrfull{accept-test}. Different automated testing tools are often used to enhance efficiency~\cite{software_testing}.
+    
+    \item \textbf{Deployment}. After successful testing, an application needs to be deployed to the production environment. This includes activities like installation, configuration, and user training. Deployment strategies can range from a single release to multiple incremental releases~\cite{ci_cd}.
+    
+    \item \textbf{Maintenance}. Once the software is in use, it enters the maintenance phase, where the bugs are fixed, the performance is improved and new features are introduced. It also can include monitoring the system to ensure it works as expected~\cite{maintenance_phase}.
+\end{enumerate}
+
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.66\linewidth]{figures/software_development_lifecucle.png}
+%     \caption{SDLC broken down into stages~\cite{jackson_sdlc}.}
+%     \label{fig:sdlc}
+% \end{figure}
+
+%=========================%
+\section{Quality Assurance}
+%=========================%
+Quality Assurance (QA) in software development is a process aimed at ensuring that software products satisfy requirements and are without any bugs. QA involves process monitoring, testing, code review, and quality audits, all of these activities are designed to enhance the quality and stability of software products. Claude Laporte and Alain April emphasise that effective QA practices are crucial for achieving high-quality software. Strict observance is involved in defining standards and procedures \cite{laporte_april_quality_assurance}.
+
+An analysis by Silva and Siriwardana reveals the effectiveness of different QA approaches across various development models. It highlights the value of adjusting QA practices to the specific needs of each project. Their study reveals that agile models, with iterative development and continuous feedback loops, often lead to better quality outcomes compared to traditional models \cite{silva_siriwardana_quality_assurance}.
+
+Mladen Vukašinović provides further insights into the methodologies and tools used in QA, stressing the significance of automated testing and continuous integration in maintaining high standards of quality. Vukašinović's research outlines best practices for software testing, defect management, and the use of QA metrics to monitor and improve software quality \cite{vukašinović_quality_assurance}.
+
+%==================================%
+\section{Development and Operations}
+%==================================%
+\newacronym{devops}{\scshape DevOps}{Development and Operations}
+
+Seeing \acrfull{devops} as a single life-cycle can be viewed as a cultural shift in software development. It is a new, continuous approach constructed on top of iterative \acrshort{sdlc}, emphasising communication and collaboration between development, operations and quality assurance teams, and the usage of automated tools to facilitate the process.
+
+\begin{quote}
+    DevOps lifecycle is a series of automated development processes or workflows within an iterative development lifecycle~\cite{simformDevOps}.
+\end{quote}
+
+\acrshort{devops} practices work together to break down the wall between development and operations teams, having in mind a consolidated approach to continuous delivery and deployment.
+It merges these two aspects together and creates unified method of working.
+The core principles of \acrshort{devops} include continuous integration, continuous deployment, infrastructure as code, and automated testing.
+According to Red Hat, \acrshort{devops} enhances the ability of organisations to Accelerate delivery of applications and services, improving the pace and quality of software development \cite{redhatdevops}.
+
+The origins of \acrshort{devops} can be traced back to the need for better collaboration between development and IT operations.
+This was highlighted and the problem was hard to miss because of  the increasing complexity of software systems.
+The term \acrshort{devops} was popularised through a series of conferences and discussions that focused on improving the efficiency and reliability of software delivery processes \cite{edwards_devops}.
+\acrshort{devops} pipeline implementation is about integrating various tools and practices that support continuous integration and continuous delivery, facilitating a unified approach to continuous improvement \cite{katz_devops_pipeline}.
+
+The evolution of \acrshort{devops} has also led to the emergence of \DevSecOps{}, which interweave security practices into the \acrshort{devops} framework. This approach ensures that security is a shared responsibility across the entire \acrshort{sdlc}, from planning and development to deployment and maintenance. As highlighted by various sources, \DevSecOps{} practices help organisations achieve more secure and resilient systems by using automated security testing and continuous monitoring into their development workflows \cite{mezak_devops_origins}.
+
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=0.9\linewidth]{7-od-devops.png}
+    \caption{7 continuous processes of \acrshort{devops}, adapted from~\cite{simformDevOps}.}
+    \label{fig:7-of-dev-ops}
+\end{figure}
+
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=0.6\linewidth]{figures/risk_management_process.png}
+    \caption{Risk management process, adapted from~\cite{unit21_risk_management:photo}.}
+    \label{fig:risk-management}
+\end{figure}
+
+%===========================================%
+\section{Continuous Integration and Delivery}
+%===========================================%
+\newacronym{CI}{CI}{Continuous Integration}
+\newacronym{CD}{CD}{Continuous Delivery}
+\newacronym{cicd}{CI/CD}{Continuous Integration and Continuous Delivery}
+
+\acrfull{CI} and \acrfull{CD}, also often known together as \acrshort{cicd}) are critical components of modern software development practices that aim to enhance the efficiency, reliability, and speed of software delivery. CI involves code of new changes integration using a shared repository, where each addition to the main code base triggers automated builds and tests. In the case of an unsuccessful build or test this practice helps to identify and fix issues early, reducing the complexity and time required for debugging and ensuring a consistent quality of the codebase. According to Martin Fowler, one of the key benefits of CI is that it encourages developers to commit code frequently, leading to a more collaborative and cohesive development process \cite{fowler_ci}.
+
+CD builds on the principles of CI by automating the deployment process, enabling efficient and trustworthy deployment of code updates. This practice uses automated testing, continuous integration, and release automation, fostering a seamless flow from development to production. The integration of CI/CD pipelines allows to deliver new features and fixes faster. GitLab highlights that the implementation of CI/CD practices helps in reducing manual errors, increasing deployment speed, and improving overall software quality \cite{gitlab_cicd}.
+
+The importance of CI/CD is further emphasized by Atlassian, which notes that these practices lead to shorter development cycles, better product quality, and more efficient use of resources. By automating the integration and deployment processes, teams can focus more on writing quality code and less on the overhead of manual processes \cite{atlassian_ci_cd}.
+
+\section{Risk Management}
+In software development, risk management is a systematic process of identifying, prioritising and fighting risk associated with data systems. All the elements of the process are illustrated by figure~\ref{fig:risk-management}.
+
+Effective risk management ensures that potential issues are identified early and that appropriate measures are in place to mitigate their effects. According to ISO standard 27005, a structured approach to risk management includes: risk assessment, risk mitigation strategies, and continuous monitoring~\cite{iso_risk_assessment}.
+
+The US National Institute for Standards and Technology (NIST) provides a detailed framework for risk management~\cite{nist_risk_management}, which includes the following steps of the process: 
+\begin{enumerate}
+    \item \textbf{Prepare}: 
+    \begin{quote}
+    carry out essential activities at the organisation, mission and business process, and information system levels of the organisation to help prepare the organisation to manage its security and privacy risks [...].
+    \end{quote}
+    \item \textbf{Categorise}: 
+    \begin{quote}
+    inform organizational risk management processes and tasks by determining the adverse impact to organizational operations and assets, individuals, other organizations, and the Nation with respect to the loss of confidentiality, integrity, and availability of organizational systems and the information processed, stored, and transmitted by those systems.
+    \end{quote}
+    \item \textbf{Select}: 
+    \begin{quote}
+    select, tailor, and document the controls necessary to protect the information system and organization commensurate with risk to organizational operations and assets, individuals, other organizations [...].    
+    \end{quote}
+    \item \textbf{Implement}: 
+    \begin{quote}
+    implement the controls in the security and privacy plans for the system and for the organization and to document in a baseline configuration, the specific details of the control implementation.    
+    \end{quote}
+    \item \textbf{Assess}: 
+    \begin{quote}
+    determine if the controls selected for implementation are implemented correctly, operating as intended, and producing the desired outcome with respect to meeting the security and privacy requirements for the system and the organization.    
+    \end{quote}
+    \item \textbf{Authorise}: 
+    \begin{quote}
+    provide organizational accountability by requiring a senior management official to determine if the security and privacy risk (including supply chain risk) to organizational operations and assets, individuals, other organizations, or the Nation based on the operation of a system or the use of common controls, is acceptable.
+    \end{quote}
+    \item \textbf{Monitor}: 
+    \begin{quote}
+    maintain an ongoing situational awareness about the security and privacy posture of the information system and the organization in support of risk management decisions.    
+    \end{quote}
+\end{enumerate}
+
+This framework helps organisations anticipate potential challenges and implement proactive measures to prevent disruptions in their operations. The goal is to enhance decision-making processes and improve the resilience of software projects against potential threats.
+
+In addition, effective risk management involves regular reviews and updates to the risk management plan, ensuring that it remains relevant and effective in addressing evolving risks. This continuous improvement process is crucial for maintaining a robust risk management strategy \cite{sans_risk_management}.
+
+% \subsection{Risk Assessment}
+Several different frameworks have been developed.
+Kolisnichenko, Kolomytsev and Nosok list five different methods in~\cite{Kolisnichenko2022}: DREAD, PRISMA, PRAM, FMEA and FTA.
+
+\begin{table}[h!]
+\centering
+\caption{Comparison of different risk assessment methods, adapted from~\cite{Kolisnichenko2022}.}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+    \textbf{Name} & \textbf{Resource costs} & \textbf{Attributes} & \textbf{Time} & \textbf{Accuracy} \\ \hline
+    PRISMA & Medium & 2 & Short & Average \\ \hline
+    PRAM & Medium & 2 & Short & Average \\ \hline
+    FMEA & High & 3 & Moderate & High \\ \hline
+    FTA & High & 2 & Moderate & High \\ \hline
+    DREAD & High & 5 & Long & High \\ \hline
+\end{tabular}
+\label{table:methods}
+\end{table}
+
+\newacronym{FMEA}{FMEA}{Failure Mode and Effects Analysis}
+\newacronym{FTA}{FTA}{Fault Tree Analysis}
+\newacronym{PRISMA}{PRISMA}{Product Risk Management}
+\newacronym{PRAM}{PRAM}{Probabilistic Risk Assessment Methodology}
+\newacronym{DREAD}{DREAD}{Damage, Reproducibility, Exploitability, Affected Users, and Discoverability}
+
+\begin{description}
+    \item[\acrshort{FMEA}] The \acrfull{FMEA}~\cite{MIL-STD-1629A}, originally developed by US Department of Defence, is a formal methodology based on logical reasoning used to identify and eliminate known or potential failures through either qualitative or quantitative analysis. Designed to inform risk management decisions for complex systems, it analyses each cause of failure using three attributes: severity, priority, likelihood.
+    
+    \item[\acrshort{FTA}] The \acrfull{FTA}~\cite{ericson1999}, originally developed at Bell Laboratories, is a risk management tool for identifying possibles points of failure through in-depth analysis of cause and result, and presenting it in a tree structure to help quickly identify roots of the problems that need to be addressed.
+
+    \item[\acrshort{PRISMA}] The \acrfull{PRISMA}~\cite{prisma} is an approach to identify areas with the highest level of business and technical risk, using \textit{Risk Matrix}, divided in four areas each representing a different level and type of risk. 
+
+    \item[\acrshort{PRAM}] The \acrfull{PRAM}~\cite{pram} outlines processes and methodologies that facilitate risk analysis and management in projects. PRAM separates risk management into two parts: qualitative risk analysis, which involves identifying and subjectively assessing risks, and quantitative analysis, which provides an objective assessment. The methodology is structured to identify, evaluate, and manage risks effectively~\cite{pram}.
+
+    \item[\acrshort{DREAD}] is a model used in computer security risk assessment, previously employed by Microsoft and now adopted by OpenStack and other organizations. Though no longer in use by its original creators, DREAD evaluates security threats across five factors: Damage Potential (D), Reproducibility (R), Exploitability (E), Affected Users (A), and Discoverability (D). Each factor receives a numerical score based on severity~\cite{dread2023}.
+\end{description}
+
+
+\section{Security Incident Response}
+Security Incident Response is a critical aspect of cybersecurity. It employs a structured approach to managing and responding to security attacks and their smaller counterparts - breaches. The primary goal of incident response is to handle incidents in a way that limits damage and reduces recovery time and associated costs. According to NIST, an effective incident response process includes preparation, detection and analysis, containment, eradication, and recovery. Post-incident activities are also crucial. They provide valuable insights for improving future response efforts \cite{nist_handling_guide}.
+
+The SANS Institute’s \textit{Incident Handlers Handbook} emphasises the importance of having a well-defined incident response plan, skilled personnel, and appropriate tools and technologies. Regular training and simulation exercises ensure that the incident response team is prepared to act quickly, effectively and under pressure during a security event. These preparations help minimising the impact of security incidents and restore normal operations in the shortest time possible~\cite{incident_handlers_handbook}.
+
+Moreover, the Federal Incident Notification Guidelines provided by CISA outline best practices for incident notification and coordination. Importance of timely and accurate communication during incident response activities is highlighted there. These guidelines help organizations comply with regulatory requirements and enhance their overall incident management capabilities~\cite{cisa_irp,maintenance_phase}.
+
+\section{\DevSecOps{}}
+When we develop software, we focus on delivering the solution as fast and with as little strain on our resources as possible. It's only natural, in the real world, where we often are forced to operate under rigid restrictions and around requirements that can change very quickly~\cite{Sommerville2016}. It does not make much difference if the project we are working on is a huge commercial system, proof-of-concept for research and development, an internal tool, or even a student project. In every case, we want it to work, we want it to have been done yesterday already and we wish we had spent less time or money doing it~\cite{Brooks1995}.
+Under such circumstances, it often happens that the cybersecurity of the software we produce is not one of the primary concerns, while we focus on satisfying our clients' functional and performance requirements~\cite{Shostack2014}. This situation, albeit understandable, is concerning because it can lead to severe consequences if the security of our data is compromised~\cite{Schneier2015}.
+In other cases, security measures have once been implemented but are not being monitored and updated constantly. Security is a process, after all, not a single event~\cite{Morana2018}. It's very well encapsulated in the term \DevSecOps{}—development, security, operations—which adds security integration into all stages of software's life-cycle, from design through development and testing to the final delivery~\cite{Humble2010}.
+In this work, we want to review several projects for their security practices and their implementation of the \DevSecOps{} process and then propose enhancements based on state-of-the-art knowledge in the field of cybersecurity~\cite{Ransbotham2009}. We will attempt to create a reference framework of different solutions that can be applied to the projects with due regard for their requirements and risks and measure the impact of the changes we make on the existing processes stressing not just risk prevention but also time consumption and resulting cost generation~\cite{Morana2018}.
+
+\DevSecOps{} is a methodology, an approach, which places security as a responsibility shared throughout the entire IT life-cycle, encompassing culture, automation, and platform design \cite{ibmdevsecops}. \DevSecOps{} aims to support a collaborative environment where security is prioritised alongside development and operations from the beginning of the project.
+
+% \subsubsection{What is DevSecOps}
+Historically, security responsibilities were isolated from the development team and assigned to a specialised group. This group worked separately on security and most often only on securing the final stages of development. In today's fast-paced environment, this an approach is completely not correct. Continuous and integrated security is crucial for developing software. \DevSecOps{} brings the security aspect into the development and operations process, ensuring ongoing best practices in security \cite{redhatdevops}. This integration is crucial for addressing security issues fast and minimising the risk of vulnerabilities being introduced into the software.
+
+% \subsubsection{Why it is Important}
+In today's quickly changing environment, it is crucial to have reliable software that is functional and secure. Security in software development is the protection of information from being stolen, used in a wrong way, or accessed without proper authorisation. It ensures the integrity, confidentiality, and availability of data \cite{securitydefinition}. By integrating security throughout the entire software development process, \DevSecOps{} helps in mitigating risks and improving the overall security of the application \cite{awsdevsecops}.
+This approach not only protects sensitive data but also helps companies meet regulatory requirements and avoid potential legal repercussions \cite{owaspwstg}.
+
+% \subsubsection{What it Changes}
+The \DevSecOps{} approach changes old, not enough,  ways of handling security in software development. Instead of treating security as something to be done at the end---a final step, it integrates security practices within the entire~\textsc{DevOps} workflow. This means that security is continuously addressed and consequently improved, just like other aspects of software development~\cite{microsoftdevsecops}.
+Continuous security testing, automated security checks, and regular security audits are some of the practices that take part in ensuring that security is embedded in every phase of the software development life-cycle~\cite{hackerone}.
+
+An integral part of the automation postulated by \DevSecOps{} is the using of continuous integration (CI) and continuous deployment (CD) pipelines to perform automatic tests, checks and build upon the produced software~\cite{gitlab_cicd}.
+
+% \subsubsection{Advantages of DevSecOps}
+There are several advantages to the \DevSecOps{} approach:
+
+\begin{itemize}
+    \item \textbf{Cost-Effectiveness:} integrating security early in the development process helps in identifying and fixing vulnerabilities early, reducing the cost of security breaches and fixes \cite{ibmdevsecops}.
+    \item \textbf{Increased Trust:} continuous security practices enhance clients' trust by ensuring that their data and the application are secure \cite{redhatdevops}.
+    \item \textbf{Intellectual Property Security:} protecting intellectual property is critical in maintaining a competitive edge and avoiding legal issues. \DevSecOps{} ensures that intellectual property is secure through the whole development process \cite{awsdevsecops}.
+    \item \textbf{Enhanced Compliance:} \DevSecOps{} helps in maintaining compliance with the best standards and regulations. It reduces the risk of legal sanctions and improves the company’s reputation \cite{owaspwstg}.
+    \item \textbf{Faster Delivery:} By integrating security early and continuously, \DevSecOps{} can help in delivering software faster by reducing the need for really wide in-scale security testing at the end of the development cycle \cite{microsoftdevsecops}.
+\end{itemize}
+
+In conclusion, \DevSecOps{} represents a significant evolution in the way the security of the applications is managed in software development. By integrating security into the \textsc{DevOps} processes, companies can achieve more reliable, secure, and efficient software development life-cycle.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Theoretical Framework} \label{ch:theory-frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newacronym{rodo}{GDPR}{General Data Protection Regulation}
+\newacronym{moscow}{MoSCoW}{Must/Should/Could/Won't}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textsc{After gathering data from various sources}, such as articles, guidelines, and industry standards, we analysed this information to identify best practices and approaches that can be implemented and followed in any cybersecurity project. By consolidating and summarising this data, we developed an outline that provides a comprehensive understanding of effective approaches to cybersecurity, including the identification of potential threats and vulnerabilities.
+
+Based on this extensive research, we created a theoretical framework that outlines a general approach for how project teams should operate and what steps they should follow. This framework is designed to offer a clear path for those navigating the overwhelming landscape of diverse methodologies and strategies. It serves as a guide—a structured pathway that can be universally applied to address the complexities of cybersecurity practices. Below, we present the ideal approach.
+
+The proposed framework is visualised in the flowchart (\cref{fig:csecf-theory}), which illustrates the key steps in an ideal continuous security process. The process begins with Prepare and Plan, followed by two parallel paths that can be executed simultaneously by different teams: Requirement Analysis and Categorise. These paths then lead to the Design and Select stages, respectively. Once the design and selection are completed, the process merges into the Implementation phase, where the core development work takes place. After implementation, the framework advances to Testing, where the developed solution is analysed, and then to Deployment, where the application is built and made available within the system. The next critical stages involve Assess, Authorise, and Monitor, ensuring that the implemented solutions are both effective and compliant. The final step, Maintain and Adjust, highlights the continuous nature of this framework, where ongoing monitoring drives essential adaptations, ensuring the system remains secure over time and in every moment.
+
+This structured, iterative approach not only guides teams through the cybersecurity development life-cycle but also ensures that the resulting system is resilient, adaptive, and aligned with best practices.
+
+\begin{enumerate}
+    \item \textbf{Preparation and Planning}. Understanding a project both before starting it and during its production is crucial for effective development. The organisation should be prepared for the project, the sense of the system known, the goals and risks defined, stakeholders identified, and resources allocated. Without it, the organisation will be less effective, the processes longer, and the result potentially less secure.
+    Consider the following:
+    \begin{itemize}
+        \item The system's purpose should be kept clear at all times.
+        \item Responsibilities for security should be assigned to team members; this does not necessarily require specially hired individuals.
+        \item The business processes that will be digitised by the system should be clarified, and their security should be assessed.
+        \item The data to be processed should be identified.
+        \item Someone should be designated to oversee security.
+        \item It should be established who is authorised to make decisions, and whether the Project Manager should escalate decisions to higher authorities.
+        \item If circumstances change, the data collected here should be revisited to inform decisions in the next stages of the life cycle.
+        \item Privacy requirements, both practical and legal, should be considered. In Europe, information systems must adhere to the \acrfull{rodo}.
+    \end{itemize}
+            
+    \item \textbf{Requirements Analysis and Threat Categorisation}. It is essential to thoroughly gather and document software requirements. Ensure you capture both functional requirements, which outline what the system must achieve, and non-functional requirements, which address attributes like security, performance, and usability.
+    It is also recommended to align these requirements with your organisation's risk management processes, if possible.
+    Evaluate the potential adverse impacts on organisational operations, assets, individuals, and security, particularly concerning the loss of \acrfull{cia} of your systems and the data they handle.
+    \begin{itemize}
+        \item The requirements should be gathered and documented. Without clear definitions, meeting the requirements is not possible.
+        \item If the requirements change, this section should be revisited.
+        \item Data protection requirements should be defined, ensuring that previous steps are leveraged.
+        \item You should remain inquisitive. Regularly meet with colleagues and ask pertinent questions.
+        \item Once risks are identified, you should be aware of the potential consequences, such as the loss of \acrshort{cia}.
+        \item Requirements related to \acrfull{aaa} should be collected.
+    \end{itemize}
+    
+    \item \textbf{Design, Choose Defences, and Prioritise for Implementation}.
+    
+    First, develop the system’s architecture. Start with high-level design---the overall structure of the system. Then, move on to detailed design, which specifies the internal workings and behaviour of each system component.
+    
+    Secondly, carefully select and adapt security measures to protect the system and the organisation. These should be aligned with risks identified in the previous step.
+    
+    Thirdly, both `business' and `security' features should be prioritised accordingly to provide a strong foundation for the system, and built on top of it.
+    
+    \begin{itemize}
+        \item Plans and designs should be documented. Designs are a form of a contract between developers and clients.
+        \item If something changes, update the development and security plans! Undocumented changes should be considered a serious risk, as it's easy to overlook details that haven't been recorded.
+        \item For every level of analysis, element, and system component consider if the feature is secure what the risks are and, how they can  be mitigated. Propose protection methods based on the knowledge available to you.
+        \item Priorities should be determined when making plans.
+    \end{itemize}
+    
+    
+    \item \textbf{Implementation}. The purpose of this stage is to translate into a functional, operational and secure system.
+    The process is iterative and should be informed by earlier prioritisation. 
+    Document how the e specific details of how features and security measures are implemented. Documentation will support ongoing security management, compliance efforts, and future development in general.
+    \begin{itemize}
+        \item If there is no project plan, start by creating one before proceeding with implementation.
+        \item Conduct code (and security) reviews—can it be written cleaner? Made faster? More secure?
+        \item Code should be reviewed before proceeding with deployment. 
+    \end{itemize}
+    
+    \item \textbf{Test and Assess}. Testing is a critical element of the process to verify that the software functions as intended and meets all specified requirements. Various types of testing exist, both for functionality and security of a system. They can be automatic or manual. By thoroughly testing the application, you can confirm that the software not only works correctly but also maintains the necessary security and privacy standards.
+    \begin{itemize}
+        \item Test security comprehensively.
+        \item Security of data in transit should not be forgotten when conducting integration tests.
+        \item \acrshort{accept-test} should also cover security features.
+        \item The environment where the code will be deployed should be tested as well, to ensure it will not compromise the application.
+    \end{itemize}
+    
+    \item \textbf{Deployment}. After successful testing, the application is ready to be deployed to the production environment. This deployment process involves several key activities, including installation of the software, configuration of the system settings, and training users to effectively operate the application.
+    \begin{itemize}
+        \item Only code that has been tested should be deployed.
+        \item Deployments should be done only to a secure environment.
+        \item Be cautious with sensitive data during the deployment process, especially in configuration. Sensitive data should be identified and accounted for in plans to avoid any uncertainty.
+    \end{itemize}
+
+
+    \item \textbf{Authorise}. Ensure organisational accountability by assigning a senior management official the responsibility to assess and determine whether the security and privacy risks—including supply chain risks—to organisational operations and assets, individuals, other organisations, or national security are acceptable. This official must evaluate these risks in the context of the system's operation or the use of common controls, making informed decisions about whether they align with the organisation's risk tolerance and objectives.
+    \begin{itemize}
+        \item Developers should also have the authority to voice their concerns and escalate them to someone with greater knowledge, perspective, or authority.
+        \item Do not proceed with implementation without approval from higher levels.
+        \item Risk management involves making choices on how to mitigate threats (e.g., in relation to costs) and taking responsibility for those decisions.
+    \end{itemize}
+    
+    \item \textbf{Monitoring and Maintenance}. Maintain situational awareness of the security and privacy posture of both the information system and the organisation. Once the software is in use, it enters the maintenance phase, during which bugs are fixed, performance is optimised, new features can be added, and the functioning of the system is monitored to ensure it operates as expected (and that any emerging risks are promptly addressed).
+    \begin{itemize}
+        \item Ensure the process is continuous.
+        \item Monitor the system continuously, particularly focusing on improving areas that aren't functioning well, especially in terms of security. 
+        \item Adaptability: There should be a feedback loop in place that allows for the adaptation of new processes when changes occur.
+        \item If an issue arises due to poor implementation, revise and re-implement the plan accordingly.
+        \item If the plan is flawed, revisit the steps and correct them.
+        \item Regularly check existing functionalities through periodic testing.
+        \item Be aware that information about threats may come from external sources—adjust accordingly.
+    \end{itemize}
+\end{enumerate}
+
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/framework_0.1.png}
+    \caption{Simplified flowchart for the theoretical \textit{continuous security} framework.}
+    \label{fig:csecf-theory}
+\end{figure}
