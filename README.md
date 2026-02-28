@@ -1,134 +1,102 @@
 # Continuous Security Navigator
 
-Web app do analizy dojrzalosci procesu DevSecOps i planowania usprawnien zespolowych.
-Aplikacja jest oparta bezposrednio o 8-etapowy framework z materialow w katalogu `article`.
+A practical web app for DevSecOps process analysis and team improvement planning.
 
-## Co dostajesz
+## Key capabilities
 
-- Ocene procesu w 8 etapach (`Preparation -> Monitoring`) na skali 0-3.
-- Wynik laczny i wynik per etap (ryzyko + dojrzalosc).
-- Automatyczna lista luk i roadmapa usprawnien (`MUST/SHOULD/COULD`).
-- Rekomendacje narzedzi z **dzialajacymi linkami** do oficjalnych dokumentacji.
-- Eksport raportu `.md` do udostepnienia w zespole lub managementowi.
-- Zapis stanu w `localStorage` (mozna wracac do oceny).
+- English-first UI by default, with EN/PL language switch.
+- Dark mode by default, with light mode switch.
+- 8-stage process assessment on a 0-3 maturity scale.
+- Weighted scoring and risk classification per stage and overall.
+- Prioritized gaps (`MUST / SHOULD / COULD`) with owners and KPI targets.
+- Clickable gap cards with a full cause -> effect -> action -> outcome view.
+- Tool recommendations with working links to official documentation.
+- Markdown report export.
+- Local state persistence (`localStorage`).
 
-## Jak to odwzorowuje artykul
+## Quick start
 
-Aplikacja mapuje 8 krokow frameworku z:
-
-- `article/03-knowledge-base.tex` (Theoretical Framework)
-- `article/05-ending.tex` (Practical Framework + Conclusion)
-
-Kazdy etap zawiera:
-
-- pytania kontrolne,
-- akcje naprawcze,
-- KPI,
-- propozycje narzedzi,
-
-co odpowiada strukturze `discussion + checklist + problems/solutions` z rozdzialow koncowych.
-
-## Szybki start
-
-Wymagania:
+Requirements:
 
 - Node.js 18+
 
-Uruchomienie lokalne:
+Run locally:
 
 ```bash
 npm run dev
 ```
 
-Aplikacja bedzie pod adresem:
+Open:
 
 - `http://localhost:4173`
 
-## Testowanie (dokladna procedura)
+## Testing and validation
 
-1. Walidacja modelu danych i linkow (format + spojnosc odwolan):
+1. Validate data model and links:
 
 ```bash
 npm run validate
 ```
 
-2. Testy logiki analizy:
+2. Run logic tests:
 
 ```bash
 npm test
 ```
 
-3. Test manualny UI:
+3. Manual UX test checklist:
 
-- uruchom `npm run dev`
-- wejdz na `http://localhost:4173`
-- ustaw profil projektu
-- wypelnij ocene 8 etapow
-- sprawdz sekcje:
-  - `Wyniki i rekomendacje`
-  - `Top luki`
-  - `Roadmapa`
-  - `Rekomendowane narzedzia`
-- kliknij `Eksport raportu (.md)` i zweryfikuj wygenerowany plik
-- kliknij `Zapisz lokalnie`, odswiez strone, sprawdz czy dane sie utrzymuja
+- start app with `npm run dev`
+- verify default language is English
+- verify default theme is Dark
+- switch language to PL and confirm UI text updates
+- switch theme to Light and confirm visual change
+- complete a few stage answers and confirm results update
+- click a gap card and verify detail view opens
+- verify detail view includes cause/effect/action/outcome and links
+- export report and verify generated `.md` content
+- save locally, refresh page, verify state is restored
 
-4. Test presetow:
+## How to use effectively with a team
 
-- kliknij po kolei `Startup / chaos`, `Scale-up / rosnacy`, `Mature engineering`
-- zweryfikuj, ze wyniki i roadmapa zmieniaja sie sensownie
+1. Run the first assessment with 3 roles together: Tech Lead, Product, Security/DevOps.
+2. Score current reality, not target state.
+3. Pick 3-5 `MUST` items from roadmap for the next sprint.
+4. Assign an owner and KPI for each selected item.
+5. Re-assess every 2-4 weeks and track score/risk trend.
+6. Use the exported report in sprint planning and quarterly review.
 
-## Jak uzywac, zeby aplikacja byla realnie uzyteczna
+## Deployment
 
-1. Zrob pierwsza ocene z 3 osobami: Tech Lead, Product, Security/DevOps.
-2. Nie oceniaj "jak powinno byc", tylko "jak jest teraz".
-3. Wybierz 3-5 pozycji `MUST` z roadmapy na najblizszy sprint.
-4. Dla kazdej pozycji przypisz ownera i KPI.
-5. Powtarzaj ocene co 2-4 tygodnie i porownuj trend wyniku lacznego.
-6. Uzyj raportu `.md` jako zalacznika do retrospektywy / planowania kwartalnego.
+### GitHub Pages
 
-To jest zgodne z duchem artykulu: proces ma byc **ciagly**, a nie jednorazowy.
-
-## Deployment na GitHub Pages
-
-W repo sa gotowe workflow:
+Workflows are included:
 
 - `.github/workflows/ci.yml`
 - `.github/workflows/deploy-pages.yml`
 
-Kroki:
+Steps:
 
-1. Wypchnij repo na GitHub i ustaw domyslna galez `main`.
-2. Wejdz w `Settings -> Pages`.
-3. W `Build and deployment` ustaw `Source: GitHub Actions`.
-4. Wykonaj push na `main`.
-5. Workflow `Deploy to GitHub Pages` opublikuje strone.
+1. Push repository to GitHub on `main`.
+2. Open `Settings -> Pages`.
+3. Set `Source` to `GitHub Actions`.
+4. Push to `main` (or run workflow manually).
 
-Uwaga: workflow publikuje statyczna zawartosc repo, wiec aplikacja nadaje sie idealnie pod Pages.
+### Vercel
 
-## Deployment na Vercel
-
-Jesli wolisz Vercel:
-
-1. Importuj repo do Vercel.
-2. Framework preset: `Other` (to statyczna strona).
-3. Build command: puste.
+1. Import repository in Vercel.
+2. Use framework preset `Other` (static site).
+3. Build command: empty.
 4. Output directory: `.`
 5. Deploy.
 
-## Struktura projektu
+## Project structure
 
-- `index.html` - UI
-- `styles.css` - styl i responsywnosc
-- `app.js` - logika UI i interakcje
-- `lib/framework-data.mjs` - pytania, KPI, narzedzia, mapowanie 8 etapow
-- `lib/engine.mjs` - scoring, ryzyko, findings, roadmapa, raport
-- `tests/engine.test.mjs` - testy logiki
-- `scripts/dev-server.mjs` - lokalny serwer bez zaleznosci
-- `scripts/validate-data.mjs` - walidacja danych i linkow
-
-## Co dalej (polecane rozszerzenia)
-
-- Integracja z Jira API i automatyczne tworzenie ticketow z roadmapy.
-- Integracja z GitHub/GitLab (metryki PR, code scanning, deployment frequency).
-- Historia ocen w pliku JSON/DB i trend line w czasie.
-- Export do PDF oraz dashboard dla managementu.
+- `index.html` - application shell
+- `styles.css` - styles, responsive layout, theme system
+- `app.js` - UI logic, i18n/theme switch, interactions
+- `lib/framework-data.mjs` - assessment model, bilingual content, links
+- `lib/engine.mjs` - scoring, findings, roadmap, report generation
+- `tests/engine.test.mjs` - analysis tests
+- `scripts/dev-server.mjs` - local static dev server
+- `scripts/validate-data.mjs` - data and URL consistency checks

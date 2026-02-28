@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="pl">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Continuous Security Navigator</title>
     <meta
       name="description"
-      content="Aplikacja do analizy dojrzalosci DevSecOps i planowania usprawnien procesow zespolowych na podstawie 8-etapowego frameworku continuous security."
+      content="Web app for DevSecOps process maturity analysis, risk-driven team improvements, and practical tool recommendations."
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
@@ -15,85 +15,96 @@
     <div class="bg-orb orb-b"></div>
     <main class="app-shell">
       <header class="hero">
-        <p class="kicker">Framework-driven DevSecOps Improvement</p>
-        <h1>Continuous Security Navigator</h1>
-        <p class="lead">
-          Narzedzie do praktycznej analizy procesu developmentu i bezpieczenstwa.
-          Ocenia 8 etapow frameworku z artykulu, wykrywa luki i tworzy roadmape
-          usprawnien z konkretnymi narzedziami.
-        </p>
+        <div class="hero-topbar">
+          <p id="hero-kicker" class="kicker"></p>
+          <div class="preferences">
+            <label>
+              <span id="lang-label"></span>
+              <select id="lang-switch">
+                <option value="en">EN</option>
+                <option value="pl">PL</option>
+              </select>
+            </label>
+            <label>
+              <span id="theme-label"></span>
+              <select id="theme-switch">
+                <option id="theme-option-dark" value="dark"></option>
+                <option id="theme-option-light" value="light"></option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <h1 id="app-title"></h1>
+        <p id="hero-lead" class="lead"></p>
         <div class="hero-actions">
-          <button id="btn-save" class="btn btn-primary">Zapisz lokalnie</button>
-          <button id="btn-export" class="btn btn-secondary">Eksport raportu (.md)</button>
-          <button id="btn-reset" class="btn btn-ghost">Reset</button>
+          <button id="btn-save" class="btn btn-primary"></button>
+          <button id="btn-export" class="btn btn-secondary"></button>
+          <button id="btn-reset" class="btn btn-ghost"></button>
         </div>
       </header>
 
       <section class="panel panel-profile">
-        <h2>Profil projektu</h2>
+        <h2 id="section-profile-title"></h2>
         <div id="profile-form" class="profile-grid"></div>
         <div class="quick-presets">
-          <span>Szablony startowe:</span>
-          <button id="preset-startup" class="chip">Startup / chaos</button>
-          <button id="preset-scaleup" class="chip">Scale-up / rosnacy</button>
-          <button id="preset-mature" class="chip">Mature engineering</button>
+          <span id="preset-label"></span>
+          <button id="preset-startup" class="chip"></button>
+          <button id="preset-scaleup" class="chip"></button>
+          <button id="preset-mature" class="chip"></button>
         </div>
       </section>
 
       <section class="panel panel-framework">
         <div class="panel-title">
-          <h2>Ocena 8 etapow frameworku</h2>
-          <p>Skala: 0=Nie istnieje, 1=Ad hoc, 2=Powtarzalne, 3=Zintegrowane</p>
+          <h2 id="framework-title"></h2>
+          <p id="framework-scale"></p>
         </div>
         <div id="framework-form" class="framework-grid"></div>
       </section>
 
+      <section id="detail-panel" class="panel panel-detail" hidden>
+        <div class="panel-title">
+          <h2 id="detail-heading"></h2>
+          <button id="btn-close-detail" class="btn btn-secondary"></button>
+        </div>
+        <p id="detail-open-hint" class="muted"></p>
+        <div id="detail-content" class="detail-content"></div>
+      </section>
+
       <section class="panel panel-results">
-        <h2>Wyniki i rekomendacje</h2>
+        <h2 id="results-title"></h2>
         <div id="overall-summary" class="overall-summary"></div>
         <div id="stage-results" class="stage-results"></div>
       </section>
 
       <section class="panel panel-findings">
-        <h2>Najwazniejsze luki i plan usprawnien</h2>
+        <h2 id="findings-title"></h2>
         <div class="split-grid">
           <div>
-            <h3>Top luki</h3>
+            <h3 id="findings-subtitle"></h3>
             <div id="findings" class="findings-list"></div>
           </div>
           <div>
-            <h3>Roadmapa (12 najwazniejszych zadan)</h3>
+            <h3 id="roadmap-subtitle"></h3>
             <div id="roadmap" class="roadmap-list"></div>
           </div>
         </div>
       </section>
 
       <section class="panel panel-tools">
-        <h2>Rekomendowane narzedzia (dzialajace linki)</h2>
-        <p class="muted">
-          Narzedzia sa dobierane automatycznie do wykrytych luk. Linki prowadza
-          do oficjalnej dokumentacji lub stron produktow.
-        </p>
+        <h2 id="tools-title"></h2>
+        <p id="tools-lead" class="muted"></p>
         <div id="tools" class="tools-grid"></div>
       </section>
 
       <section class="panel panel-method">
-        <h2>Metodologia i kontekst artykulu</h2>
+        <h2 id="approach-title"></h2>
         <ul>
-          <li>Model opiera sie na 8 krokach frameworku continuous security.</li>
-          <li>
-            Logika ocenia dojrzalosc procesu (nie tylko podatnosci aplikacji)
-            zgodnie z zalozeniami DevSecOps.
-          </li>
-          <li>
-            Wyniki lacza ryzyko, koszt i wykonalnosc zmian, zgodnie z wnioskami
-            z analiz zespolow opisanych w materiale.
-          </li>
+          <li id="approach-b1"></li>
+          <li id="approach-b2"></li>
+          <li id="approach-b3"></li>
         </ul>
-        <p class="muted">
-          Zrodla lokalne: article/01-introduction.tex,
-          article/03-knowledge-base.tex, article/05-ending.tex
-        </p>
       </section>
     </main>
 
